@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    float x[15], y[15], sum = 0.0, X, term = 1;
+    int i, j, n;
+    printf("\t\t output \n");
+    printf("\n No of points: ");
+    scanf("%d", &n);
+    printf("Enter the value of x and y: \n");
+    printf("\nx\ty=f(x)\n");
+    for (i = 0; i < n; i++)
+        scanf("%f \t%f", &x[i], &y[i]);
+    printf("Enter the value of x at which y is required: ");
+    scanf("%f", &X);    
+    for (i = 0; i < n; i++) 
+    {
+        term = y[i];
+        for (j = 0; j < n; j++) 
+        {
+            if (j != i)
+                term = term * (X - x[j]) / (x[i] - x[j]);
+        }
+        sum = sum + term;
+    }
+    printf("\nInterpolation at x=%f is: y=%f", X, sum);
+    return 0;
+}
