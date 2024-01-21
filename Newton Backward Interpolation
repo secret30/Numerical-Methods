@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+int main() 
+{
+    float x[15],y[15],p=1,d,u,h,X;
+    int n,i,j;
+    printf("Enter the number of terms: ");
+    scanf("%d",&n);
+    X=42;
+    printf("Enter the value of x and y: ");
+    for (i=1;i<=n;i++)
+    {
+        scanf("%f %f",&x[i], &y[i]);
+    }
+    h=x[2]-x[1];
+    u=(X-x[n])/h;
+    d=y[n];
+    for (i=1;i<=n;i++)
+    {
+        for (j=n;j>=i+1;j--)
+        {
+            y[j]=y[j]-y[j-1];
+        }
+        p=p*(u+i-1)/i;
+        d=d+p*y[n];
+    }
+    printf("\n The Result is=%f at x=%f",d,X);
+}
